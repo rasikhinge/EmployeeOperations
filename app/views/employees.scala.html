@@ -1,0 +1,20 @@
+@(employees:scala.collection.mutable.ListBuffer[model.Employee])
+
+@main("Employees") {
+<section>
+    <div>
+        Employees -
+        @if(employees != null){
+        <ul>
+            @employees.map{ emp =>
+            <li>@emp.name</li>
+            <a href="@routes.EmployeeController.editEmployee(emp.name)">edit</a>
+            }
+        </ul>
+        }
+    </div>
+    <div>
+        <a href="@routes.EmployeeController.createEmployeeForm()">create</a>
+    </div>
+</section>
+}

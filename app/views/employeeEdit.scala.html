@@ -1,0 +1,11 @@
+@(employee:model.Employee)
+
+@main("Employee Edit"){
+<section>
+    <div>
+        <form action="@routes.EmployeeController.updateEmployee()" method="post">
+            <input type="text" value="@employee.name" name="name"/>
+        </form>
+    </div>
+</section>
+}

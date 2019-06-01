@@ -1,0 +1,10 @@
+@main("Create Employee"){
+<section>
+    <div>
+        <form action="@routes.EmployeeController.createEmployee()" method="post">
+            Name : <input type="text" name="name"/>
+            <input type="submit" value="create"/>
+        </form>
+    </div>
+</section>
+}
