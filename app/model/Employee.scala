@@ -1,3 +1,3 @@
 package model
 
-case class Employee(name:String,age:Int)
+case class Employee(name: String, age: Int)

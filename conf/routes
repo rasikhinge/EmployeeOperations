@@ -4,17 +4,19 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
-GET     /home                       controllers.EmployeeController.home
-GET     /create                     controllers.EmployeeController.createEmployeeForm
+GET     /                                      controllers.HomeController.index
+GET     /home                                  controllers.EmployeeController.home
+GET     /create                                controllers.EmployeeController.createEmployeeForm
 + nocsrf
-POST    /create                     controllers.EmployeeController.createEmployee
-GET     /employees                  controllers.EmployeeController.viewEmployees
-GET     /edit/:name                 controllers.EmployeeController.editEmployee(name:String)
+POST    /create                                controllers.EmployeeController.createEmployee
+GET     /employees                             controllers.EmployeeController.viewEmployees
+GET     /edit/:name                            controllers.EmployeeController.editEmployee(name:String)
 + nocsrf
-POST    /update                     controllers.EmployeeController.updateEmployee
-GET     /dashboard                  controllers.DashboardController.welcome
-GET     /dashboard/hello            controllers.DashboardController.helloDashboard()
+POST    /update                                controllers.EmployeeController.updateEmployee
+GET     /employee/:name                        controllers.EmployeeController.deleteEmployee(name:String)
+GET     /dashboard                             controllers.DashboardController.welcome
+GET     /dashboard/details                     controllers.DashboardController.getDashboardDetails()
+GET     /dashboard/operation/:operation        controllers.DashboardController.getOperationDetails(operation:String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

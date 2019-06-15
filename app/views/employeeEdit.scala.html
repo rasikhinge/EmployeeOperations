@@ -4,7 +4,9 @@
 <section>
     <div>
         <form action="@routes.EmployeeController.updateEmployee()" method="post">
-            <input type="text" value="@employee.name" name="name"/>
+            <input type="text" value="@employee.name" name="name" readonly/>
+            <input type="text" value="@employee.age" name="age"/>
+            <input type="submit" value="update" />
         </form>
     </div>
 </section>

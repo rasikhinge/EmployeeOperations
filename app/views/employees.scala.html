@@ -9,12 +9,16 @@
             @employees.map{ emp =>
             <li>@emp.name</li>
             <a href="@routes.EmployeeController.editEmployee(emp.name)">edit</a>
+            <br/>
+            <a href="@routes.EmployeeController.deleteEmployee(emp.name)">delete</a>
             }
         </ul>
         }
     </div>
     <div>
         <a href="@routes.EmployeeController.createEmployeeForm()">create</a>
+        <br/>
+        <a href="@routes.DashboardController.getDashboardDetails()">dashboard</a>
     </div>
 </section>
 }

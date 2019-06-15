@@ -1,0 +1,17 @@
+@(employees:scala.collection.mutable.ListBuffer[model.Employee])
+
+@main("Operation Details") {
+<section>
+    <div>
+        @if(employees != null) {
+        <ul>
+            @employees.map{ emp =>
+            <li>
+                <p>@emp.name</p>        <p>@emp.age</p>
+            </li>
+            }
+        </ul>
+        }
+    </div>
+</section>
+}

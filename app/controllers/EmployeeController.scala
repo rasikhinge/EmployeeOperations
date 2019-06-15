@@ -123,7 +123,8 @@ class EmployeeController @Inject()(cc: ControllerComponents) extends AbstractCon
 
     //logger.info("create employee = " + employee)
     println("creating employee = " + request.body)
-    //  EmployeeService.addEmployee()
+
+    EmployeeService.addEmployee(request.body)
     Ok(views.html.employees(EmployeeService.getEmployees()))
   }
 
@@ -143,9 +144,20 @@ class EmployeeController @Inject()(cc: ControllerComponents) extends AbstractCon
     Ok(views.html.employeeEdit(emp1))
   }
 
+  def deleteEmployee(name: String) = Action {
+    val emp = EmployeeService.getEmployee(name) match {
+      case Some(x) => x
+      case None => new Employee("Not Found", 0)
+    }
+    EmployeeService.deleteEmployee(emp)
+    Ok(views.html.employees(EmployeeService.getEmployees()))
+
+  }
+
   def updateEmployee() = Action { implicit request =>
     val employee = employeeForm.bindFromRequest().get
     println("employee" + employee)
+    EmployeeService.updateEmployee(employee)
     Ok(views.html.employees(EmployeeService.getEmployees()))
   }
 

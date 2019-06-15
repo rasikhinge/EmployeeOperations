@@ -1,0 +1,18 @@
+@(dashboardData:model.Dashboard)
+
+@main("Employee Dashboard") {
+<section>
+    <div>
+        <a href=@routes.DashboardController.getOperationDetails("Create")>Create Count @dashboardData.create</a>
+    </div>
+    <br/>
+    <div>
+        <a href=@routes.DashboardController.getOperationDetails("Update")>Update Count @dashboardData.update</a>
+    </div>
+    <br/>
+    <div>
+        <a href=@routes.DashboardController.getOperationDetails("Delete")>Delete Count @dashboardData.delete</a>
+    </div>
+    <br/>
+</section>
+}
