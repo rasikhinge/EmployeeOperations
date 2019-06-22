@@ -1,0 +1,19 @@
+@main("Register"){
+<section>
+    <div>
+        <form action="@routes.LoginController.register()" method="post">
+            Name : <input type="text" name="name"/>
+            <br/>
+            Age : <input type="text" name="age"/>
+            <br/>
+            Email : <input type="email" name="email"/>
+            <br/>
+            Password : <input type="password" name="password"/>
+            <br/>
+            Confirm Password : <input type="password"/>
+            <br/>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</section>
+}

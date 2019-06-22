@@ -7,12 +7,23 @@ import play.api.data._
 import play.api.mvc.{AbstractController, ControllerComponents}
 import service.EmployeeService
 
+import scala.util.{Failure, Success, Try}
+
 class EmployeeController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
   //val logger = Logger.getLogger(this.getClass.getName)
 
-  def home() = Action {
-    Ok(views.html.employeeHome())
+  def home() = Action { implicit request =>
+    def validateUser = {
+      Try(request.session("user")) match {
+        case Success(x) =>
+          Ok(views.html.employeeHome())
+        case Failure(exception) =>
+          Ok(views.html.welcome())
+      }
+    }
+
+    validateUser
   }
 
   /*val employeeForm: Form[Employee] = Form {
